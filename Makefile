@@ -6,7 +6,7 @@
 #    By: drenassi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 17:50:21 by drenassi          #+#    #+#              #
-#    Updated: 2023/11/08 18:24:24 by drenassi         ###   ########.fr        #
+#    Updated: 2023/11/08 22:01:34 by drenassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@
 NAME	= push_swap
 CHECKER	= checker
 CC 		= cc
-CFLAGS	= -Wall -Werror -Wextra -g3
+CFLAGS	= -Wall -Werror -Wextra
 DFLAGS	= -MMD -MF $(@:.o=.d)
 AUTHOR	= drenassi
 DATE	= 07/11/2023

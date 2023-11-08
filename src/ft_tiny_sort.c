@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 11:46:33 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/08 17:07:21 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/08 22:59:51 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 /* Returns 1 if the stack is sorted, 0 if not */
 int	ft_is_sorted(t_list *stack_a)
 {
+	if (!stack_a)
+		return (0);
 	while (stack_a->next)
 	{
 		if (stack_a->value > stack_a->next->value)

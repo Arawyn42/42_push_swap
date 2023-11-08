@@ -6,7 +6,7 @@
 /*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:30:56 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/08 22:00:06 by drenassi         ###   ########.fr       */
+/*   Updated: 2023/11/08 23:02:03 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,22 @@ static int	ft_check(char *line, t_list **stack_a, t_list **stack_b)
 		ft_putstr(line);
 		checker = ft_checker(line, stack_a, stack_b);
 		if (checker <= 0)
-			return (checker);
+		{
+			free(line);
+			return (ft_lstclear(stack_a), ft_lstclear(stack_b), checker);
+		}
 		if (ft_is_sorted(*stack_a) && ft_lstsize(*stack_b) < 1)
 			break ;
+		free(line);
 		line = get_next_line(0);
 	}
 	if (ft_is_sorted(*stack_a) && ft_lstsize(*stack_b) < 1)
 		ft_putstr("OK\n");
 	else
 		ft_putstr("KO\n");
+	ft_lstclear(stack_a);
+	ft_lstclear(stack_b);
+	free(line);
 	return (1);
 }
 
@@ -79,10 +86,8 @@ int	main(int ac, char **av)
 	check = ft_check(line, &stack_a, &stack_b);
 	if (check == -1)
 		ft_print_error("Error");
-	if (!check)
+	else if (!check)
 		ft_putstr("KO\n");
-	ft_lstclear(&stack_a);
-	ft_lstclear(&stack_b);
-	free(line);
+	get_next_line(-1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 #    By: drenassi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/08 17:50:21 by drenassi          #+#    #+#              #
-#    Updated: 2023/11/08 22:01:34 by drenassi         ###   ########.fr        #
+#    Updated: 2023/11/09 17:49:56 by drenassi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,6 @@ NAME	= push_swap
 CHECKER	= checker
 CC 		= cc
 CFLAGS	= -Wall -Werror -Wextra
-DFLAGS	= -MMD -MF $(@:.o=.d)
 AUTHOR	= drenassi
 DATE	= 07/11/2023
 NOVISU 	= 0 # 1 = no progress bar usefull when tty is not available
@@ -56,9 +55,6 @@ OBJS_PATH			= ./objs
 OBJS				= $(addprefix objs/, ${SRCS:$(FILE_EXTENSION)=.o})
 OBJ_MAIN			= $(addprefix objs/, ${MAIN:$(FILE_EXTENSION)=.o})
 OBJS_CHECKER		= $(addprefix objs/, ${CHECKER_SRCS:$(FILE_EXTENSION)=.o})
-DEPS				= $(addprefix objs/, ${SRCS:$(FILE_EXTENSION)=.d})
-DEPS_MAIN			= $(addprefix objs/, ${MAIN:$(FILE_EXTENSION)=.d})
-DEPS_CHECKER		= $(addprefix objs/, ${CHECKER_SRCS:$(FILE_EXTENSION)=.d})
 
 ################################################################################
 #                                 MAKEFILE LOGIC                               #
@@ -127,15 +123,7 @@ define save_files_changed
 		for OBJ in $$FILE_OBJ; do \
 			if [ $${FILE%$(FILE_EXTENSION)} = $${OBJ%.o} ]; then \
 				if [ $(SRCS_PATH)/$$FILE -ot objs/$$OBJ ]; then \
-					FILE_DEP=`echo objs/$$OBJ | sed 's/\.o/\.d/'`; \
-					HEAD_FILES=`< $$FILE_DEP xargs | grep -oh "\w*.h\w*"`; \
 					RECOMPILE=0; \
-					for HEAD in $$HEAD_FILES; do \
-						if [ $(SRCS_PATH)/$$HEAD -nt objs/$$OBJ ]; then \
-							RECOMPILE=1; \
-							break; \
-						fi; \
-					done; \
 					if [ $$RECOMPILE -eq 0 ]; then \
 						((TO_COMPILE=$$TO_COMPILE-1)); \
 					fi;\
@@ -154,15 +142,7 @@ define save_files_changed_bonus
 		for OBJ in $$FILE_OBJ; do \
 			if [ $${FILE%$(FILE_EXTENSION)} = $${OBJ%.o} ]; then \
 				if [ $(SRCS_PATH)/$$FILE -ot objs/$$OBJ ]; then \
-					FILE_DEP=`echo objs/$$OBJ | sed 's/\.o/\.d/'`; \
-					HEAD_FILES=`< $$FILE_DEP xargs | grep -oh "\w*.h\w*"`; \
 					RECOMPILE=0; \
-					for HEAD in $$HEAD_FILES; do \
-						if [ $(SRCS_PATH)/$$HEAD -nt objs/$$OBJ ]; then \
-							RECOMPILE=1; \
-							break; \
-						fi; \
-					done; \
 					if [ $$RECOMPILE -eq 0 ]; then \
 						((TO_COMPILE=$$TO_COMPILE-1)); \
 					fi;\
@@ -201,7 +181,10 @@ endef
 
 define display_progress_bar
 	if [ $(NOVISU) -eq 0 ]; then \
-		line=`bash -c 'oldstty=$$(stty -g); stty raw -echo min 0; tput u7 > /dev/tty; IFS=";" read -r -d R -a pos; stty $$oldstty; row=$$(($${pos[0]:2} - 1)); echo $$row'`; \
+		line=`bash -c 'oldstty=$$(stty -g); \
+		stty raw -echo min 0; tput u7 > /dev/tty; IFS=";" \
+		read -r -d R -a pos; stty $$oldstty; \
+		row=$$(($${pos[0]:2} - 1)); echo $$row'`; \
 		max_line=`tput lines`; \
 		((max_line=$$max_line-2));\
 		new_line=0; \
@@ -233,8 +216,6 @@ endef
 ################################################################################
 #                                 MAKEFILE RULES                               #
 ################################################################################
-
--include $(DEPS) $(DEPS_MAIN) $(DEPS_CHECKER)
 
 ###################################### ALL #####################################
 .PHONY:																		all
@@ -288,18 +269,18 @@ setup_bonus:
 
 $(NAME):	${OBJS} ${OBJ_MAIN}
 			@$(call display_progress_bar)
-			@$(call run_and_test,$(CC) $(CFLAGS) $(DFLAGS) -I$(INCLUDE_PATH) -o $@ ${OBJS} ${OBJ_MAIN})
+			@$(call run_and_test,$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -o $@ ${OBJS} ${OBJ_MAIN})
 		
 
 $(CHECKER):	${OBJS} ${OBJS_CHECKER}
 			@$(call display_progress_bar)
-			@$(call run_and_test,$(CC) $(CFLAGS) $(DFLAGS) -I$(INCLUDE_PATH) -o $@ ${OBJS} ${OBJS_CHECKER})
+			@$(call run_and_test,$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -o $@ ${OBJS} ${OBJS_CHECKER})
 
 
 $(OBJS_PATH)/%.o: 	$(SRCS_PATH)/%$(FILE_EXTENSION)
 			@mkdir -p $(dir $@)
 			@$(call display_progress_bar)
-			@$(call run_and_test,$(CC) $(CFLAGS) $(DFLAGS) -c $< -o $@ -I$(INCLUDE_PATH))
+			@$(call run_and_test,$(CC) $(CFLAGS) -c $< -o $@ -I$(INCLUDE_PATH))
 
 ##################################### CLEAN ####################################
 .PHONY:																		clean

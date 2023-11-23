@@ -59,3 +59,6 @@ If you want to check that the list is well sorted, use the following command:
 ```bash
 ARG="list_of_numbers"; ./push_swap $ARG | ./checker $ARG
 ```
+
+## Grade
+![125](grade.png)

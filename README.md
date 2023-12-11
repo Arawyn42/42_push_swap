@@ -1,5 +1,9 @@
 # <div align="center">⚙️ push_swap (a [42](https://42perpignan.fr/) project) ⚙️</div>
 
+## Grade
+[![drenassi's 42 push_swap Score](https://badge42.coday.fr/api/v2/clph33bao098101t6vnzqbe17/project/3373435)]
+
+## Introduction
 This project consists in sorting a list of numbers in ascending order. But, for that, we can only use some given moves.
 To get the best grade, the number of moves has to be optimized to be the less possible.
 As a parameter, the program take a list of random numbers, each one between INT_MIN and INT_MAX. This list is called the **stack a**. Then, it uses another list, called the **stack b**, which is empty at start, to sort the **stack a**.
@@ -59,6 +63,3 @@ If you want to check that the list is well sorted, use the following command:
 ```bash
 ARG="list_of_numbers"; ./push_swap $ARG | ./checker $ARG
 ```
-
-## Grade
-![125](grade.png)

@@ -1,7 +1,7 @@
 # <div align="center">⚙️ push_swap (a [42](https://42perpignan.fr/) project) ⚙️</div>
 
 ## Grade
-[![drenassi's 42 push_swap Score](https://badge42.coday.fr/api/v2/clph33bao098101t6vnzqbe17/project/3373435)]
+![drenassi's 42 push_swap Score](https://badge42.coday.fr/api/v2/clph33bao098101t6vnzqbe17/project/3373435)
 
 ## Introduction
 This project consists in sorting a list of numbers in ascending order. But, for that, we can only use some given moves.

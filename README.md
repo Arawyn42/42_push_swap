@@ -1,11 +1,11 @@
 <div align="center">
   <h1>⚙️ push_swap (a <a href="https://42perpignan.fr/">42</a> project) ⚙️</h1>
-  <img src="preview.png" alt="Preview">
-  <p><b>Subject (in french):</b> <a href="en.subject.pdf">en.subject.pdf</a></p>
+  <img src="ressources/preview.png" alt="Preview">
+  <p><b>Subject (in french):</b> <a href="ressources/en.subject.pdf">en.subject.pdf</a></p>
 </div>
 <div align="center">
   <h2>✅ Grade</h2>
-  <img src="grade.png" alt="Grade">
+  <img src="ressources/grade.png" alt="Grade">
 </div><br>
 
 ## <div align="center">📄 Introduction</div>

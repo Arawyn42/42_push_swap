@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_cost.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: drenassi <@student.42perpignan.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 00:02:06 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/08 17:06:33 by drenassi         ###   ########.fr       */
+/*   Updated: 2024/10/22 16:11:03 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,10 @@
 
 void	ft_set_cost(t_list **stack_a, t_list **stack_b)
 {
-	t_list	*a;
 	t_list	*b;
 	int		size_a;
 	int		size_b;
 
-	a = *stack_a;
 	b = *stack_b;
 	size_a = ft_lstsize(*stack_a);
 	size_b = ft_lstsize(*stack_b);

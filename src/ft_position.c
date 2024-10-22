@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_position.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: drenassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: drenassi <@student.42perpignan.fr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 00:23:09 by drenassi          #+#    #+#             */
-/*   Updated: 2023/11/06 18:17:11 by drenassi         ###   ########.fr       */
+/*   Updated: 2024/10/22 16:11:58 by drenassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,13 @@ static int	ft_set_min_target(t_list **stack_a)
 }
 
 /* Gets the target position needed in stack a */
-static int	ft_get_target_pos(t_list **stack_a, t_list **stack_b, int b_index)
+static int	ft_get_target_pos(t_list **stack_a, int b_index)
 {
 	t_list	*a;
-	t_list	*b;
 	int		target_index;
 	int		target_pos;
 
 	a = *stack_a;
-	b = *stack_b;
 	target_index = INT_MAX;
 	target_pos = 0;
 	while (a)
@@ -88,7 +86,7 @@ void	ft_set_target_pos(t_list **stack_a, t_list **stack_b)
 	target_pos = 0;
 	while (b)
 	{
-		target_pos = ft_get_target_pos(stack_a, stack_b, b->index);
+		target_pos = ft_get_target_pos(stack_a, b->index);
 		b->target_pos = target_pos;
 		b = b->next;
 	}

@@ -9,8 +9,8 @@
 </div><br>
 
 ## <div align="center">📄 Introduction</div>
-This project consists in sorting a list of numbers in ascending order. But, for that, we can only use some given moves.
-To get the best grade, the number of moves has to be optimized to be the less possible.
+This project consists in sorting a list of numbers in ascending order. But, for that, we can only use some given moves.<br>
+To get the best grade, the number of moves has to be optimized to be the less possible.<br>
 As a parameter, the program take a list of random numbers, each one between INT_MIN and INT_MAX. This list is called the **stack a**. Then, it uses another list, called the **stack b**, which is empty at start, to sort the **stack a**.
 
 The bonus consists in making another program, called **checker**, to check that the list returned by the push_swap program is well-sorted.
@@ -18,25 +18,25 @@ The bonus consists in making another program, called **checker**, to check that 
 
 ## <div align="center">♟️ Allowed moves</div>
 ### <div align="center">Swap</div>
-Swaps the first and the second element of a list.
-**sa** to perform it in the stack a.
+Swaps the first and the second element of a list.<br>
+**sa** to perform it in the stack a.<br>
 **sb** to perform it in the stack b.
 
 ### <div align="center">Push</div>
-Pushes the first element of a stack on the other stack.
-**pa** to push from stack b to stack a.
+Pushes the first element of a stack on the other stack.<br>
+**pa** to push from stack b to stack a.<br>
 **pb** to push from stack a to stack b.
 
 ### <div align="center">Rotate</div>
-Puts the first element of a stack at the end of the stack.
-**ra** to rotate the stack a.
-**rb** to rotate the stack b.
+Puts the first element of a stack at the end of the stack.<br>
+**ra** to rotate the stack a.<br>
+**rb** to rotate the stack b.<br>
 **rr** to rotate both of the stacks.
 
 ### <div align="center">Reverse Rotate</div>
-Puts the last element of a stack at the top of the stack.
-**rra** to reverse rotate the stack a.
-**rrb** to reverse rotate the stack b.
+Puts the last element of a stack at the top of the stack.<br>
+**rra** to reverse rotate the stack a.<br>
+**rrb** to reverse rotate the stack b.<br>
 **rrr** to reverse rotate both of the stack.
 <br><br>
 

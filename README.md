@@ -17,23 +17,23 @@ The bonus consists in making another program, called **checker**, to check that 
 <br><br>
 
 ## <div align="center">♟️ Allowed moves</div>
-### <div align="center">Swap</div>
+### Swap
 Swaps the first and the second element of a list.<br>
 - **sa** to perform it in the stack a.
 - **sb** to perform it in the stack b.
 
-### <div align="center">Push</div>
+### Push
 Pushes the first element of a stack on the other stack.<br>
 - **pa** to push from stack b to stack a.
 - **pb** to push from stack a to stack b.
 
-### <div align="center">Rotate</div>
+### Rotate
 Puts the first element of a stack at the end of the stack.<br>
 - **ra** to rotate the stack a.
 - **rb** to rotate the stack b.
 - **rr** to rotate both of the stacks.
 
-### <div align="center">Reverse Rotate</div>
+### Reverse Rotate
 Puts the last element of a stack at the top of the stack.<br>
 - **rra** to reverse rotate the stack a.
 - **rrb** to reverse rotate the stack b.
